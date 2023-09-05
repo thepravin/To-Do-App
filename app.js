@@ -1,3 +1,5 @@
+
+
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
@@ -10,7 +12,8 @@ function addTask() {
     listContainer.appendChild(li);
     // add crros icon
     let span = document.createElement("span");
-    span.innerText="\u00d7";
+    // span.innerText="\u00d7";
+    span.innerHTML=`<i class="fa-solid fa-trash"></i>`
     li.appendChild(span);
   }
   inputBox.value = " ";  // errase box context
@@ -19,9 +22,8 @@ function addTask() {
 }
 
 listContainer.addEventListener("click",function(e){
-    if(e.target.tagName === "LI"){
-        e.target.classList.toggle("checked");
-    }else if(e.target.tagName==="SPAN"){
+   
+     if(e.target.tagName==="SPAN"){
         e.target.parentElement.remove();
         saveData();
     }
